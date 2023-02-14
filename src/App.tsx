@@ -1,7 +1,11 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { MainBox, WeatherAppBox } from "./components/mainComponents/components";
+import {
+  DataBox,
+  MainBox,
+  WeatherAppBox,
+} from "./components/mainComponents/components";
 import Header from "./components/header/Header";
 import { MenuBox } from "./components/menu/components";
 
@@ -11,6 +15,7 @@ function App() {
       <Header />
       <MainBox>
         <MenuBox></MenuBox>
+        <DataBox></DataBox>
       </MainBox>
     </WeatherAppBox>
   );

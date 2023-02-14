@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const MenuBox = mui(Box)({
   width: "20vw",
-  height: "86.5vh",
+  height: "86vh",
   borderRight: "4px solid #000000",
   //   display: "flex",
   //   flexDirection: "column",
