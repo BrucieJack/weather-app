@@ -20,10 +20,13 @@ export const DataBox = mui(Box)({
   width: "79vw",
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
 });
 
 export const DaysBox = mui(Box)({
+  width: "79vw",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
+  marginTop: "8vh",
 });
