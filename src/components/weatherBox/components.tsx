@@ -39,14 +39,14 @@ export const Temp = mui(Typography)({
   display: "flex",
   alignItems: "center",
   fontWeight: 700,
-  fontSize: "48px",
+  fontSize: "4vh",
 });
 
 export const AdvName = mui(Typography)({
   display: "flex",
   alignItems: "center",
   fontWeight: 300,
-  fontSize: "20px",
+  fontSize: "1.8vh",
   color: "#797676",
   marginBottom: "1vh",
 });
@@ -55,7 +55,7 @@ export const AdvValue = mui(Typography)({
   display: "flex",
   alignItems: "center",
   fontWeight: 700,
-  fontSize: "24px",
+  fontSize: "2.2vh",
   marginBottom: "1vh",
 });
 
@@ -73,5 +73,5 @@ export const SmallBoxText = mui(Typography)({
   display: "flex",
   alignItems: "center",
   fontWeight: 700,
-  fontSize: "32px",
+  fontSize: "3vh",
 });
