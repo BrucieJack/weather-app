@@ -10,3 +10,15 @@ export const MenuBox = mui(Box)({
   //   alignItems: "center",
   //   textAlign: "left",
 });
+
+export const FormBox = mui(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+});
+
+export const MarginBox = mui(Box)({
+  marginTop: "2vh",
+});

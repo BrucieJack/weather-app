@@ -11,13 +11,14 @@ import Header from "./components/header/Header";
 import { MenuBox } from "./components/menu/components";
 import BigWeatherBox from "./components/weatherBox/BigWeatherBox";
 import SmallWeatherBox from "./components/weatherBox/SmallWeatherBox";
+import Menu from "./components/menu/Menu";
 
 function App() {
   return (
     <WeatherAppBox>
       <Header />
       <MainBox>
-        <MenuBox></MenuBox>
+        <Menu></Menu>
         <DataBox>
           <BigWeatherBox />
           <DaysBox>
