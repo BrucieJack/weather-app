@@ -8,6 +8,7 @@ export const BigBox = mui(Box)({
   marginTop: "5vh",
   display: "flex",
   flexDirection: "column",
+  backgroundColor: "rgb(199, 240, 252)",
   //   alignItems: "center",
   //   textAlign: "left",
 });
@@ -66,6 +67,7 @@ export const SmallBox = mui(Box)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  backgroundColor: "rgb(199, 240, 252)",
   //   textAlign: "left",
 });
 

@@ -12,8 +12,17 @@ import { MenuBox } from "./components/menu/components";
 import BigWeatherBox from "./components/weatherBox/BigWeatherBox";
 import SmallWeatherBox from "./components/weatherBox/SmallWeatherBox";
 import Menu from "./components/menu/Menu";
+import { useQuery } from "react-query";
+// import { getWeather } from "./api/weatherApi";
 
 function App() {
+  // const { isSuccess, isLoading, refetch, isError, error, data } = useQuery(
+  //   ["posts"],
+  //   () => getWeather()
+  // );
+
+  // console.log(data);
+
   return (
     <WeatherAppBox>
       <Header />
@@ -37,3 +46,6 @@ function App() {
 }
 
 export default App;
+function getAllPostsFn(): any {
+  throw new Error("Function not implemented.");
+}

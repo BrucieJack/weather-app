@@ -11,6 +11,7 @@ export const HeaderBox = mui(Box)({
   //   flexDirection: "column",
   //   alignItems: "center",
   //   textAlign: "left",
+  backgroundColor: "rgb(136, 225, 252)",
 });
 
 export const HeaderTitle = mui(Typography)({

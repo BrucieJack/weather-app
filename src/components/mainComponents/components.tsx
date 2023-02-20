@@ -8,6 +8,7 @@ export const WeatherAppBox = mui(Box)({
   //   flexDirection: "column",
   //   alignItems: "center",
   //   textAlign: "left",
+  backgroundColor: "rgb(181, 238, 255)",
 });
 
 export const MainBox = mui(Box)({
