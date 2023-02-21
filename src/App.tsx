@@ -13,15 +13,15 @@ import BigWeatherBox from "./components/weatherBox/BigWeatherBox";
 import SmallWeatherBox from "./components/weatherBox/SmallWeatherBox";
 import Menu from "./components/menu/Menu";
 import { useQuery } from "react-query";
-// import { getWeather } from "./api/weatherApi";
+import { getWeather } from "./api/weatherApi";
 
 function App() {
-  // const { isSuccess, isLoading, refetch, isError, error, data } = useQuery(
-  //   ["posts"],
-  //   () => getWeather()
-  // );
+  const { isSuccess, isLoading, refetch, isError, error, data } = useQuery(
+    ["posts"],
+    () => getWeather("MInsk")
+  );
 
-  // console.log(data);
+  console.log(data);
 
   return (
     <WeatherAppBox>
