@@ -28,24 +28,32 @@ export default function BigWeatherBox(props: IProps) {
   return (
     <BigBox>
       <TempBox>
-        <Temp>20°C</Temp>
+        <Temp>{props.data?.temp}°C</Temp>
       </TempBox>
       <AdvBox>
         <AdvColumn>
           <AdvName>Ощущается</AdvName>
-          <AdvValue>20°C</AdvValue>
-          <AdvName>Вероятность дождя</AdvName>
-          <AdvValue>1%</AdvValue>
+          <AdvValue>{props.data?.apparent_temp}°C</AdvValue>
+          {props.api === "WeatherBit" && (
+            <>
+              <AdvName>Вероятность дождя</AdvName>
+              <AdvValue>{props.data?.pop}%</AdvValue>
+            </>
+          )}
           <AdvName>Скорость ветра</AdvName>
-          <AdvValue>7.4 км/ч</AdvValue>
+          <AdvValue>{props.data?.windspeed} км/ч</AdvValue>
         </AdvColumn>
         <AdvColumn>
-          <AdvName>Влажность</AdvName>
-          <AdvValue>61%</AdvValue>
-          <AdvName>Давление</AdvName>
-          <AdvValue>1026mbar</AdvValue>
+          {props.api === "WeatherBit" && (
+            <>
+              <AdvName>Влажность</AdvName>
+              <AdvValue>{props.data?.humidity}%</AdvValue>
+              <AdvName>Давление</AdvName>
+              <AdvValue>{props.data?.pres}mbar</AdvValue>
+            </>
+          )}
           <AdvName>УФ-индекс</AdvName>
-          <AdvValue>0</AdvValue>
+          <AdvValue>{props.data?.uv_index}</AdvValue>
         </AdvColumn>
       </AdvBox>
     </BigBox>

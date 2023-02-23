@@ -18,8 +18,8 @@ interface IProps {
 export default function SmallWeatherBox(props: IProps) {
   return (
     <SmallBox>
-      <SmallBoxText>Пн</SmallBoxText>
-      <SmallBoxText>20°C</SmallBoxText>
+      <SmallBoxText>{props.data?.day}</SmallBoxText>
+      <SmallBoxText>{props.data?.temp}°C</SmallBoxText>
     </SmallBox>
   );
 }

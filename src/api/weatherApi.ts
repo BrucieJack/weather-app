@@ -35,8 +35,6 @@ export const getGeoByCityName = async (name: string) => {
 };
 
 export const getWeatherByGeo = async (latitude: number, longitude: number) => {
-  console.log(latitude);
-  console.log(longitude);
   const response = await OpenMeteoApi.get(``, {
     params: {
       latitude,
