@@ -6,7 +6,7 @@ export const HeaderBox = mui(Box)({
   alignItems: "center",
   width: "100vw",
   height: "13vh",
-  borderBottom: "4px solid #000000",
+  borderBottom: "2px solid #000000",
   //   display: "flex",
   //   flexDirection: "column",
   //   alignItems: "center",

@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const BigBox = mui(Box)({
   width: "39vw",
   height: "41vh",
-  border: "4px solid #000000",
+  border: "2px solid #000000",
+  borderRadius: 15,
   marginTop: "5vh",
   display: "flex",
   flexDirection: "column",
@@ -63,7 +64,8 @@ export const AdvValue = mui(Typography)({
 export const SmallBox = mui(Box)({
   width: "8vw",
   height: "14vh",
-  border: "4px solid #000000",
+  borderRadius: 15,
+  border: "2px solid #000000",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

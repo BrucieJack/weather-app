@@ -56,7 +56,8 @@ function App() {
     ["openMeteo", geo],
     () => getWeatherByGeo(geo.latitude, geo.longitude),
     {
-      enabled: geo.latitude !== 0 || geo.longitude !== 0,
+      enabled:
+        (geo.latitude !== 0 || geo.longitude !== 0) && api !== "WeatherBit",
     }
   );
 
@@ -66,6 +67,53 @@ function App() {
       longitude: position.coords.longitude,
     });
   });
+
+  const getFromOpenMeteo = (openMeteoQuery: any) => {
+    let arr = [];
+    for (let i = 0; i < 7; i++) {
+      arr.push({
+        day: openMeteoQuery.data.daily.time[i],
+        temp: Math.round(
+          (openMeteoQuery.data.daily.temperature_2m_max[i] +
+            openMeteoQuery.data.daily.temperature_2m_min[i]) /
+            2
+        ),
+        max_temp: openMeteoQuery.data.daily.temperature_2m_max[i],
+        min_temp: openMeteoQuery.data.daily.temperature_2m_min[i],
+        apparent_temp: Math.round(
+          (openMeteoQuery.data.daily.apparent_temperature_max[i] +
+            openMeteoQuery.data.daily.apparent_temperature_min[i]) /
+            2
+        ),
+        uv_index: openMeteoQuery.data.daily.uv_index_max[i],
+        windspeed: openMeteoQuery.data.daily.windspeed_10m_max[i],
+      });
+    }
+    return arr;
+  };
+
+  const getFromWeatherBit = (weatherBitQuery: any) => {
+    let arr = [];
+    for (let i = 0; i < 7; i++) {
+      arr.push({
+        day: weatherBitQuery.data.data[i].valid_date,
+        temp: weatherBitQuery.data.data[i].temp,
+        max_temp: weatherBitQuery.data.data[i].max_temp,
+        min_temp: weatherBitQuery.data.data[i].min_temp,
+        pres: weatherBitQuery.data.data[i].pres,
+        humidity: weatherBitQuery.data.data[i].rh,
+        pop: weatherBitQuery.data.data[i].pop,
+        apparent_temp: Math.round(
+          (weatherBitQuery.data.data[i].app_max_temp +
+            weatherBitQuery.data.data[i].app_min_temp) /
+            2
+        ),
+        uv_index: weatherBitQuery.data.data[i].uv,
+        windspeed: weatherBitQuery.data.data[i].wind_spd,
+      });
+    }
+    return arr;
+  };
 
   const handleSubmit = (values: any) => {
     setCity(values.city);
@@ -87,52 +135,13 @@ function App() {
 
   useEffect(() => {
     if (weatherBitQuery.isSuccess) {
-      let arr = [];
-      for (let i = 0; i < 7; i++) {
-        arr.push({
-          day: weatherBitQuery.data.data[i].valid_date,
-          temp: weatherBitQuery.data.data[i].temp,
-          max_temp: weatherBitQuery.data.data[i].max_temp,
-          min_temp: weatherBitQuery.data.data[i].min_temp,
-          pres: weatherBitQuery.data.data[i].pres,
-          humidity: weatherBitQuery.data.data[i].rh,
-          pop: weatherBitQuery.data.data[i].pop,
-          apparent_temp: Math.round(
-            (weatherBitQuery.data.data[i].app_max_temp +
-              weatherBitQuery.data.data[i].app_min_temp) /
-              2
-          ),
-          uv_index: weatherBitQuery.data.data[i].uv,
-          windspeed: weatherBitQuery.data.data[i].wind_spd,
-        });
-      }
-      setData(arr);
+      setData(getFromWeatherBit(weatherBitQuery));
     }
   }, [weatherBitQuery.isSuccess]);
 
   useEffect(() => {
     if (openMeteoQuery.isSuccess) {
-      let arr = [];
-      for (let i = 0; i < 7; i++) {
-        arr.push({
-          day: openMeteoQuery.data.daily.time[i],
-          temp: Math.round(
-            (openMeteoQuery.data.daily.temperature_2m_max[i] +
-              openMeteoQuery.data.daily.temperature_2m_min[i]) /
-              2
-          ),
-          max_temp: openMeteoQuery.data.daily.temperature_2m_max[i],
-          min_temp: openMeteoQuery.data.daily.temperature_2m_min[i],
-          apparent_temp: Math.round(
-            (openMeteoQuery.data.daily.apparent_temperature_max[i] +
-              openMeteoQuery.data.daily.apparent_temperature_min[i]) /
-              2
-          ),
-          uv_index: openMeteoQuery.data.daily.uv_index_max[i],
-          windspeed: openMeteoQuery.data.daily.windspeed_10m_max[i],
-        });
-      }
-      setData(arr);
+      setData(getFromOpenMeteo(openMeteoQuery));
     }
   }, [openMeteoQuery.isSuccess]);
 
