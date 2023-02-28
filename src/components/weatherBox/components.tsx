@@ -1,5 +1,4 @@
-import { Box, Typography, styled as mui, Rating } from "@mui/material";
-import styled from "styled-components";
+import { Box, Typography, styled as mui } from "@mui/material";
 
 export const BigBox = mui(Box)`
   width: 60vmin;
