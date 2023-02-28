@@ -15,13 +15,11 @@ export const OpenMeteoGeoApi = axios.create({
 });
 
 export const getWeatherBitByCityName = async (city: string) => {
-  console.log(city);
   const response = await weatherBitApi.get(``, {
     params: {
       city,
     },
   });
-  console.log("запрос");
   return response.data;
 };
 

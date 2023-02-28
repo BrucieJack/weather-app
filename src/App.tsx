@@ -7,7 +7,13 @@ import {
   WeatherAppBox,
 } from "./components/mainComponents/components";
 import Header from "./components/header/Header";
-import { FormBox, MarginBox, MenuBox } from "./components/menu/components";
+import {
+  CustomSelector,
+  CustomTextField,
+  FormBox,
+  MarginBox,
+  MenuBox,
+} from "./components/menu/components";
 import BigWeatherBox from "./components/weatherBox/BigWeatherBox";
 import SmallWeatherBox from "./components/weatherBox/SmallWeatherBox";
 import { useQuery } from "react-query";
@@ -150,30 +156,34 @@ function App() {
       <Header />
       <MainBox>
         <MenuBox>
-          <FormBox>
-            <Form
-              onSubmit={handleSubmit}
-              keepDirtyOnReinitialize
-              render={({ handleSubmit, values }) => (
-                <form onSubmit={handleSubmit} noValidate>
+          <Form
+            onSubmit={handleSubmit}
+            keepDirtyOnReinitialize
+            render={({ handleSubmit, values }) => (
+              <form onSubmit={handleSubmit} noValidate>
+                <FormBox>
                   <MarginBox>
-                    <TextField label="Город" name="city" required={true} />
+                    <CustomTextField
+                      label="Город"
+                      name="city"
+                      required={true}
+                    />
                   </MarginBox>
                   <MarginBox>
-                    <Select name="api" label="API">
+                    <CustomSelector name="api" label="API">
                       <MenuItem value="OpenMeteo">OpenMeteo</MenuItem>
                       <MenuItem value="WeatherBit">WeatherBit</MenuItem>
-                    </Select>
+                    </CustomSelector>
                   </MarginBox>
                   <MarginBox>
                     <Button type="submit" variant="outlined">
                       Поиск
                     </Button>
                   </MarginBox>
-                </form>
-              )}
-            />
-          </FormBox>
+                </FormBox>
+              </form>
+            )}
+          />
         </MenuBox>
         <DataBox>
           <BigWeatherBox data={data ? data[curentDay] : undefined} api={api} />

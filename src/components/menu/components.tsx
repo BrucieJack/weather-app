@@ -1,22 +1,42 @@
 import { Box, Typography, styled as mui, Rating } from "@mui/material";
+import { Select, TextField } from "mui-rff";
 import styled from "styled-components";
 
-export const MenuBox = mui(Box)({
-  width: "20vw",
-  height: "86vh",
-  borderRight: "2px solid #000000",
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   alignItems: "center",
-  //   textAlign: "left",
+export const MenuBox = mui(Box)`
+  width: 20vw;
+  height: 86vh;
+  border-right: 2px solid #000000;
+  flex-direction: row;
+  @media (max-width: 820px) {
+    border-right: 0px solid #000000;
+    border-bottom: 2px solid #000000;
+    width: 100vw;
+    height: 10vh;
+  }
+`;
+
+export const FormBox = mui(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @media (max-width: 820px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`;
+
+export const CustomTextField = mui(TextField)({
+  "& .MuiInputBase-root": {
+    width: "17vw",
+  },
 });
 
-export const FormBox = mui(Box)({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
+export const CustomSelector = mui(Select)({
+  "& .MuiSelect-select": {
+    width: "14.5vw",
+  },
 });
 
 export const MarginBox = mui(Box)({
